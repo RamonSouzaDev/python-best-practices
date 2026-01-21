@@ -17,8 +17,8 @@ COPY pyproject.toml uv.lock ./
 # Install dependencies into a virtual environment
 RUN uv venv /opt/venv
 ENV VIRTUAL_ENV=/opt/venv
-# Install directly from pyproject.toml to avoid lockfile dependency issues if sync fails
-RUN uv pip install -r pyproject.toml
+# Force rebuild 2026-01-21-1
+RUN uv pip install --python /opt/venv/bin/python -r pyproject.toml
 
 # proper stage
 FROM python:3.13-slim-bookworm
