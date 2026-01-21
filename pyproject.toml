@@ -17,8 +17,11 @@ dependencies = [
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.uv]
-dev-dependencies = [
+[tool.hatch.build.targets.wheel]
+packages = ["src/python_best_practices"]
+
+[dependency-groups]
+dev = [
     "ruff>=0.5.0",
     "pytest>=8.0.0",
     "pytest-asyncio>=0.23.0",
